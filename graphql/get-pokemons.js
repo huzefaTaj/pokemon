@@ -15,7 +15,7 @@ export async function getPokemonList(first) {
           name
 
           classification
-
+          types
           image
         }
       }

@@ -13,21 +13,55 @@ const Detail = ({ pokemon, query }) => {
         className="block mx-auto rounded-lg shadow-lg"
         src={pokemon.image}
         alt={pokemon.name}
+        style={{ height: "300px", marginBottom: "10px", width: " 300px" }}
       />
+      <p className="text-2xl font-bold text-center my-8">
+        {pokemon.types.map((type, index) => (
+          <span
+            style={{ margin: "3px" }}
+            key={index}
+            className={`inline-block px-2 py-1 text-sm font-semibold rounded-full ${
+              type === "Grass"
+                ? "bg-green-500 text-white"
+                : type === "Fire"
+                ? "bg-red-500 text-white"
+                : type === "Poison"
+                ? "bg-green-500 text-white"
+                : type === "Water"
+                ? "bg-blue-500 text-white"
+                : type === "Flying"
+                ? "bg-gray-300 text-black"
+                : "bg-yellow-500 text-gray-900"
+            }`}
+          >
+            {type}
+          </span>
+        ))}
+      </p>
+
       <hr className="my-8" />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
         <div className="text-center">
           <p className="text-lg font-bold">Max CP:</p>
-          <p className="text-lg">{pokemon.maxCP}</p>
+          <div className="w-48 h-4 bg-gray-300 rounded-full overflow-hidden mx-auto">
+            <div className="w-24 h-full bg-blue-500"></div>
+          </div>
+          <p className="text-lg font-bold">{pokemon.maxCP}</p>
         </div>
         <div className="text-center">
           <p className="text-lg font-bold">Max HP:</p>
-          <p className="text-lg">{pokemon.maxHP}</p>
+          <div className="w-48 h-4 bg-gray-300 rounded-full overflow-hidden mx-auto">
+            <div className="w-36 h-full bg-blue-500"></div>
+          </div>
+          <p className="text-lg font-bold">{pokemon.maxHP}</p>
         </div>
         <div className="text-center">
           <p className="text-lg font-bold">Flee Rate:</p>
-          <p className="text-lg">{pokemon.fleeRate}</p>
+          <div className="w-48 h-4 bg-gray-300 rounded-full overflow-hidden mx-auto">
+            <div className="w-12 h-full bg-blue-500"></div>
+          </div>
+          <p className="text-lg font-bold">{pokemon.fleeRate}</p>
         </div>
       </div>
 
@@ -56,8 +90,9 @@ const Detail = ({ pokemon, query }) => {
           </p>
         </div>
       </div>
-
-      <h3 className="text-center text-lg font-medium my-4">Weaknesses</h3>
+      <hr />
+      <br />
+      <h3 className="text-lg font-bold text-center my-2">Weaknesses</h3>
       <ul className="grid grid-cols-2 gap-4">
         {pokemon.weaknesses.map((weakness, index) => (
           <li

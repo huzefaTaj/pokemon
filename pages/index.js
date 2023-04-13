@@ -17,7 +17,7 @@ export default function Home({ pokemonList }) {
   const totalPages = Math.ceil(pokemonList.length / pokemonPerPage);
 
   return (
-    <Layout title={"pokemon"}>
+    <Layout title={"Pokémon"}>
       <div className="pokemon-list">
         {currentPokemonList.map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} />
